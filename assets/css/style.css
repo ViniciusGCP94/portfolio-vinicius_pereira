@@ -28,7 +28,6 @@
     }
 
     header {
-        /*max-width: 900px; No container que estiver o hero da página*/
         display: flex;
         justify-content: center;
         background: linear-gradient(to right, #000000, #1a1a1a);
@@ -119,10 +118,19 @@
       padding-left: 10px;
     }
 
-    ul {
-      list-style: none;
-      display: flex;
-      gap: 15px;
+    .skills__container{
+        width: 40%;
+        display: flex;
+        justify-content: space-between;
+        background-color: #0f172a;
+        padding: 20px 5px;
+    }
+
+    .skills__container img {
+        width: 100px;
+        height: 100px;
+        background-color: #cbd5e1;
+        padding: 5px;
     }
 
     .service-card,
