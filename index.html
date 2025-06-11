@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <title>Portfólio | Seu Nome</title>
+</head>
+<body>
+  <header id="home">
+    <div class="hero">
+      <h1>Olá, eu sou Vinícius</h1>
+      <p>Desenvolvedor <span id="dynamicText">Web</span></p>
+      <a href="#portfolio">Ver projetos</a>
+    </div>
+    <div class="home-img">
+        <div class="img-container">
+            <img src="/assets/image/portfolio-image.jpg" alt="Vinícius" />
+        </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>Sobre Mim</h2>
+    <p>Olá! Meu nome é Vinícius Pereira, sou estudante de Análise e Desenvolvimento de Sistemas e um entusiasta do Desenvolvimento Web Front-End. Desde que comecei a estudar programação, fiquei fascinado com a possibilidade de criar interfaces funcionais e atraentes que proporcionem uma ótima experiência ao usuário. Meu objetivo é contribuir para projetos desafiadores enquanto desenvolvo minhas habilidades técnicas e colaborativas.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div>
+        <img src="" alt=""><img src="" alt=""><img src="" alt="">
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>Serviços</h2>
+    <div class="service-card">Criação de sites responsivos</div>
+    <div class="service-card">Landing pages</div>
+    <div class="service-card">Manutenção de Front-End</div>
+  </section>
+
+  <section id="portfolio">
+    <h2>Portfólio</h2>
+    <div class="project-card">
+      <img src="assets/img/projeto1.jpg" alt="Projeto 1">
+      <p>Projeto 1 - Descrição breve</p>
+    </div>
+    <div class="project-card">
+      <img src="assets/img/projeto2.jpg" alt="Projeto 2">
+      <p>Projeto 2 - Descrição breve</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contato</h2>
+    <form id="contactForm">
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu email" required>
+      <textarea name="mensagem" placeholder="Sua mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    <p id="formStatus"></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Vinícius. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Formulário com feedback simulado
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      status.textContent = 'Enviando...';
+
+      setTimeout(() => {
+        status.textContent = 'Mensagem enviada com sucesso!';
+        form.reset();
+      }, 1500);
+    });
+
+    // Texto dinâmico no header
+    const dynamicText = document.getElementById('dynamicText');
+    const words = ['Web', 'Front-End', 'JavaScript'];
+    let index = 0;
+
+    setInterval(() => {
+      index = (index + 1) % words.length;
+      dynamicText.textContent = words[index];
+    }, 2000);
+  </script>
+</body>
+</html>
