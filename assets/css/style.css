@@ -33,7 +33,6 @@
         background: linear-gradient(to right, #000000, #1a1a1a);
         padding: 100px 20px;
         text-align: center;
-        border: 1px solid gray;
     }
 
     header h1 {
@@ -42,17 +41,15 @@
     }
 
     header p {
-        width: 235px;
         margin: 10px 0;
-        font-size: 1.2rem;
-        border: 1px solid red;
+        font-size: 2.25rem;
     }
 
     #dynamicText {
         display: inline-block;
         min-width: 90px;
         text-align: left;
-        background-color: var(--accent);
+        color: var(--accent);
     }
 
     header a {
@@ -71,7 +68,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        border: 1px solid red;
     }
 
     .home-img {
@@ -118,23 +114,61 @@
       padding-left: 10px;
     }
 
-    .skills__container{
+    #about {
+      display: flex;
+      /*border: 1px solid yellow;*/
+    }
+
+    #about .about__content {
+      width: 100%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      /*border: 1px solid #fff;*/
+    }
+
+    .about__content__text__image{
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      /*border: 1px solid red;*/
+    }
+
+    .about__content__text__image p {
+      width: 50%;
+      font-size: 18px;
+    }
+
+    #about .about__content_img{
+      width: 45%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #about .about__content_img img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .about__content__skills__container{
         width: 40%;
         display: flex;
         justify-content: space-between;
-        background-color: #0f172a;
         padding: 20px 5px;
     }
 
-    .skills__container img {
+    .about__content__skills__container img {
         width: 100px;
         height: 100px;
         background-color: #cbd5e1;
         padding: 5px;
     }
 
-    .service-card,
-    .project-card,
+    .project-card
     article,
     blockquote {
       background: #1c1c1c;
