@@ -14,9 +14,7 @@
         padding: 0;
         box-sizing: border-box;
         font-family: Poppins, sans-serif;
-        font-family:var(--font-poppins);
-        font-weight: var(--font-weight-regular);
-        font-style: var(--font-style-normal);
+        font-weight: var(--font-style-normal);
     }
 
     body {
@@ -162,12 +160,12 @@
       justify-content: center;
       box-shadow: 8px 8px 10px var(--accent);
       border-radius: 20px;
+      border: 3px solid var(--bg);
     }
 
     .about__content_img img {
       width: 100%;
       height: auto;
-      
     }
 
     #about .about__content_img img {
@@ -199,7 +197,35 @@
         padding: 5px;
     }
 
-    .project-card
+    .project__container {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+      width: 60%;
+      height: 250px;
+      border: 1px solid var(--accent);
+      background: url('../image/Validação-de-Cartão_desktop.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      border-radius: 20px;
+    }
+
+    .project__container::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #0f0f0fd0; 
+      border-radius: 20px;
+    }
+
+    
+
+    .project__container
     article,
     blockquote {
       background: #1c1c1c;
@@ -209,12 +235,45 @@
       border-radius: 5px;
     }
 
-    .project-card img {
-      width: 100%;
-      max-width: 400px;
-      border-radius: 5px;
-      display: block;
-      margin-bottom: 10px;
+    .project__container .project__content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      position: relative;
+      z-index: 1; 
+      color: var(--text);
+      padding: 15px; 
+      /*border: 1px solid yellow;*/            
+    }
+
+    .project__content h3 {
+      font-size: 1.75rem;
+    }
+
+    .project__content p {
+      display: none;
+    }
+
+    .project__content .list__image__stack{
+      width: 80%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      /*border: 1px solid red;*/
+    }
+
+    .list__image__stack li {
+      list-style: none;
+    }
+
+    .list__image__stack img {
+      width: 50px;
+      height: 50px;
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      /*border: 1px solid blue;*/
     }
 
     form {
