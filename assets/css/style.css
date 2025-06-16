@@ -197,12 +197,26 @@
         padding: 5px;
     }
 
-    .project__container {
+    #portfolio {
+      width: 100%;
+    }
+
+    .project__container { /*.project__wrapper*/
       display: flex;
-      align-items: flex-end;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      width: 100%;
+      height: 250px;
+      border-radius: 20px;
+    }
+
+    .project__wrapper {
+      display: flex;
+      align-items: center;
       justify-content: center;
       position: relative;
-      width: 60%;
+      width: 45%;
       height: 250px;
       border: 1px solid var(--accent);
       background: url('../image/Validação-de-Cartão_desktop.png');
@@ -212,7 +226,7 @@
       border-radius: 20px;
     }
 
-    .project__container::after {
+    .project__wrapper::after { /*.project__wrapper::after*/
       content: '';
       position: absolute;
       top: 0;
@@ -223,58 +237,91 @@
       border-radius: 20px;
     }
 
-    
-
-    .project__container
-    article,
-    blockquote {
-      background: #1c1c1c;
-      padding: 20px;
-      margin: 10px 0;
-      border-left: 3px solid var(--accent);
-      border-radius: 5px;
+     .project__wrapper h3 {
+      font-size: 1.5rem;
+      text-align: center;
+      color: var(--text);
+      z-index: 1; 
     }
 
-    .project__container .project__content {
+    .project__content {
+      width: 50%;
+      height: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: flex-end;
-      position: relative;
-      z-index: 1; 
-      color: var(--text);
-      padding: 15px; 
-      /*border: 1px solid yellow;*/            
-    }
-
-    .project__content h3 {
-      font-size: 1.75rem;
+      justify-content: space-around;
     }
 
     .project__content p {
-      display: none;
+      
+    }
+
+    .project__content p a {
+      color: var(--text);
+    }
+
+    .project__content ul li {
+      
     }
 
     .project__content .list__image__stack{
-      width: 80%;
+      width: 30%;
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      /*border: 1px solid red;*/
     }
 
     .list__image__stack li {
       list-style: none;
+      display: flex;
+      align-items: center;
     }
 
     .list__image__stack img {
-      width: 50px;
-      height: 50px;
-      margin-top: 30px;
-      border-radius: 10px;
+      width: 30px;
+      border-radius: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       /*border: 1px solid blue;*/
     }
+
+    .project__access {
+      display: flex;
+      justify-content: flex-start;
+      gap: 30px;
+    }
+
+    .project__access .access__button {
+      width: 38%;
+      border: 1px solid var(--accent);
+      background-color: var(--accent);
+      color: var(--bg);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+    }
+
+    .project__access .access__button img {
+      height: 20px;
+      margin-right: 5px;
+    }
+
+    .project__access .access__button:hover {
+      background-color: var(--bg);
+      color: var(--text);
+      box-shadow: 0 0 10px #ffffff73;
+;
+      border: 1px solid var(--text);
+    }
+
+    .project__access .access__button:hover img {
+      filter: invert(1);
+    }
+
+    
 
     form {
       display: flex;
