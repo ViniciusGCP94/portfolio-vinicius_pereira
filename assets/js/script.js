@@ -27,11 +27,13 @@ const stackImages = document.querySelectorAll('.list__image__stack img');
 const buttons = document.querySelectorAll('.access__button');
 
 let typed = false;
+let scrollTimeout;
+let scrollTriggered = false;
 
+// ANIMAÇÃO AO PASSAR O MOUSE
 wrapper.addEventListener('mouseenter', () => {
-  if (typed) return; 
+  if (typed) return;
 
-  //animação de digitação
   const text = description.getAttribute('data-text');
   description.textContent = '';
   let index = 0;
@@ -44,13 +46,13 @@ wrapper.addEventListener('mouseenter', () => {
       clearInterval(typeInterval);
       typed = true;
 
-      //animação de imagens após a digitação
+      // ANIMAÇÃO DAS IMAGENS
       stackImages.forEach((img, i) => {
         setTimeout(() => {
           img.style.opacity = '1';
           img.style.transform = 'rotateY(0deg)';
 
-          //animação dos botões após a última imagem
+          // ANIMAÇÃO DOS BOTÕES
           if (i === stackImages.length - 1) {
             setTimeout(() => {
               buttons.forEach((btn, j) => {
@@ -66,5 +68,34 @@ wrapper.addEventListener('mouseenter', () => {
     }
   }, 20);
 });
+
+// RESET AUTOMÁTICO APÓS SCROLL
+window.addEventListener('scroll', () => {
+  if (scrollTriggered) return;
+
+  if (window.scrollY >= 60 || window.scrollY <= -60) {
+    scrollTriggered = true;
+
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      // RESET DO CONTEÚDO
+      description.textContent = '';
+      typed = false;
+
+      stackImages.forEach(img => {
+        img.style.opacity = '0';
+        img.style.transform = 'rotateY(90deg)';
+      });
+
+      buttons.forEach(btn => {
+        btn.style.opacity = '0';
+        btn.style.transform = 'translateY(20px)';
+      });
+
+      scrollTriggered = false;
+    }, 5000);
+  }
+});
+
 
       
