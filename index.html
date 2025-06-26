@@ -7,10 +7,10 @@
   <title>Portfólio | Vinícius Pereira</title>
 </head>
 <body>
-  <header id="home">
+  <section id="home">
     <div class="hero">
       <h1>Olá, eu sou Vinícius Pereira</h1>
-      <p>Desenvolvedor <span id="dynamicText">Web</span></p>
+      <p class="text__profission">Desenvolvedor <span id="dynamicText">Web</span></p>
       <p class="text__2">Aprendizado, dedicação e curiosidade.</p>
       <a href="#portfolio">Ver projetos</a>
     </div>
@@ -19,7 +19,7 @@
             <img src="/assets/image/portfolio-image.jpg" alt="Vinícius" />
         </div>
     </div>
-  </header>
+  </section>
 
   <section id="about">
     <div class="about__content">
@@ -41,7 +41,7 @@
   <section id="portfolio">
     <h2>Portfólio</h2>
     <div class="project__container">
-      <div class="project__wrapper">
+      <div class="project__wrapper" data-id="1">
         <h3>Validador de Cartão de Crédito</h3>
       </div>
       <div class="project__content">
@@ -52,14 +52,27 @@
           <li><img src="./assets/image/js.png" alt=""></li>
         </ul>
         <div class="project__access">
-          <a class="access__button" href=""><img src="/assets/image/logotipo-do-github.png" alt="Github Icon">Github</a>
-          <a class="access__button" href=""><img src="/assets/image/navegador.png" alt="Github Icon">Ver Projeto</a>
+          <a class="access__button" href="https://github.com/ViniciusGCP94/validador_De_Cartao_de_Credito" target="_blank"><img src="/assets/image/logotipo-do-github.png" alt="Github Icon">Github</a>
+          <a class="access__button" href="https://validador-de-cartao-de-credito-five.vercel.app/" target="_blank"><img src="/assets/image/navegador.png" alt="Github Icon">Ver Projeto</a>
         </div>
       </div>
     </div>
-    <div class="project-card">
-      <img src="assets/img/projeto2.jpg" alt="Projeto 2">
-      <p>Projeto 2 - Descrição breve</p>
+    <div class="project__container">
+      <div class="project__wrapper" data-id="2">
+        <h3>Piano Simulator</h3>
+      </div>
+      <div class="project__content">
+        <p class="project__description" data-text="É um Simulador de piano, interativo e desenvolvido em HTML, CSS e JavaScript. Toque de notas, explore acordes e aprenda os fundamentos do piano diretamente no navegador!"></p>
+        <ul class="list__image__stack">
+          <li><img src="./assets/image/html.png" alt=""></li>
+          <li><img src="./assets/image/css_3.png" alt=""></li>
+          <li><img src="./assets/image/js.png" alt=""></li>
+        </ul>
+        <div class="project__access">
+          <a class="access__button" href="https://github.com/ViniciusGCP94/piano-simulator" target="_blank"><img src="/assets/image/logotipo-do-github.png" alt="Github Icon">Github</a>
+          <a class="access__button" href="https://piano-simulator-xi.vercel.app/" target="_blank"><img src="/assets/image/navegador.png" alt="Github Icon">Ver Projeto</a>
+        </div>
+      </div>
     </div>
   </section>
 
