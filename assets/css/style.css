@@ -279,7 +279,7 @@ body {
 }
 
 .mobile__header nav .socials .social__links__button,
-.social__links__button {
+.social__links .social__links__button {
   display: block;
   width: 40px;
   height: 40px;
@@ -287,8 +287,9 @@ body {
   text-decoration: none;
   transition: color 0.3s ease;
 } 
-
-.mobile__header nav .socials a img {
+  
+.mobile__header nav .socials a img,
+.social__links .social__links__button img {
   width: 100%;
   height: 100%;
   transition: transform 0.3s ease;
@@ -321,26 +322,6 @@ body {
   color: var(--accent);
 }
 
-#home a {
-  width: 30%;
-  margin-top: 60px; 
-  padding: 10px 20px;
-  background: transparent;
-  color: var(--accent);
-  text-decoration: none;
-  border: 2px solid var(--accent);
-  border-radius: 5px;
-  font-size: 1.5rem;
-  font-weight: 500;
-}
-
-#home a:hover {
-  background: var(--accent);
-  color: #000;
-  box-shadow: 5px 5px 10px rgba(4, 255, 140, 0.5);
-  border: 2px solid var(--bg);
-}
-
 .hero {
   width: 50%;
   display: flex;
@@ -352,7 +333,6 @@ body {
 .hero .text__2 {
   font-size: 2rem;
   text-align: left;
-  margin-top: 20px;
 }
 
 .home-img {
@@ -360,7 +340,7 @@ body {
   justify-content: center;
   align-items: center;
   min-width: 280px;
-  margin-top: 20px;
+  margin-bottom: 60px;
 }
 
 .img-container {
@@ -384,6 +364,30 @@ body {
     50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%
   );
   border-radius: 8px;
+}
+
+.hero .button__hero {
+  width: 30%;
+  margin-top: 60px; 
+  padding: 10px 20px;
+  background: transparent;
+  color: var(--accent);
+  text-decoration: none;
+  border: 2px solid var(--accent);
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.hero .button__hero:hover {
+  background: var(--accent);
+  color: #000;
+  box-shadow: 5px 5px 10px rgba(4, 255, 140, 0.5);
+  border: 2px solid var(--bg);
+}
+
+.hero .social__links {
+  margin-top: 40px;
 }
 
 h2 {
@@ -637,19 +641,16 @@ footer {
     font-size: 1.5rem;
   }
 
-  #home a {
-    width: 40%;
-  }
-
   .hero {
     width: 100%;
     padding: 20px;
     text-align: center;
   }
 
-  #home-img {
-    margin-top: 10px;
+  .hero .button__hero {
+    width: 40%;
   }
+
 }
 
 @media (max-width: 890px) {
@@ -671,13 +672,13 @@ footer {
 
   #home h1 {
     width: 100%;
-    font-size: 3rem;
+    font-size: 2.75rem;
     text-align: center;
   }
 
   #home .text__profission {
     width: 95%;
-    font-size: 3rem;
+    font-size: 2.75rem;
     text-align: left;
     margin-left: 40px;
     margin-top: 0;
@@ -690,12 +691,7 @@ footer {
     margin-top: 10px;
   }
 
-  #home a {
-    width: 50%;
-    margin-left: 25%;
-    margin-top: 60px;
-  }
-
+  
   .hero {
     width: 80%;
     padding: 0;
@@ -710,6 +706,19 @@ footer {
     width: 400px;
     height: 400px;
   }
+
+  .hero .social__links {
+    width: 100%;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .hero .button__hero {
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 60px;
+  }
+
 
   #about {
     height: 70vh;
@@ -833,10 +842,6 @@ footer {
     font-size: 1.75rem;
   }
 
-  #home a {
-    margin-left: 0;
-  }
-
   #home .text__2 {
     font-size: 1.25rem;
   }
@@ -858,6 +863,11 @@ footer {
     width: 250px;
     height: 250px;
   }
+
+  .hero .button__hero{
+    margin-left: 0;
+  }
+
 
   #about{
     height: auto;
@@ -954,11 +964,6 @@ footer {
     margin-left: 50px;
   }
 
-  #home a {
-    width: 80%;
-    font-size: 1.2rem;
-  }
-
   .hero {
     width: 100%;
     padding: 0;
@@ -966,8 +971,13 @@ footer {
   }
 
   .img-container {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero .button__hero{
+    width: 80%;
+    font-size: 1.2rem;
   }
 
   #about .about__content__skills__container img,
