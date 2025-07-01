@@ -1,11 +1,9 @@
-// ==============================
-// Configurações Iniciais
-// ==============================
+
 const form = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
 const dynamicText = document.getElementById('dynamicText');
-const words = ['Web', 'Front-End', 'JavaScript'];
-let wordIndex = 0;
+const projectContainers = document.querySelectorAll('.project__container');
+
 
 const projectImages = {
   1: 'https://raw.githubusercontent.com/ViniciusGCP94/validador_De_Cartao_de_Credito/main/assets/images/Valida%C3%A7%C3%A3o-de-Cart%C3%A3o-CAPA.png',
@@ -14,36 +12,33 @@ const projectImages = {
 };
 
 const projectStates = {};
-const projectContainers = document.querySelectorAll('.project__container');
 
-// ==============================
-// Formulário
-// ==============================
 function initForm() {
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    formStatus.textContent = 'Enviando...';
-
-    setTimeout(() => {
-      formStatus.textContent = 'Mensagem enviada com sucesso!';
-      form.reset();
-    }, 1500);
-  });
+  form.addEventListener('submit', handleSubmit);
 }
 
-// ==============================
-// Texto Dinâmico
-// ==============================
+function handleSubmit(e) {
+  e.preventDefault();
+  formStatus.textContent = 'Enviando...';
+
+  setTimeout(() => {
+    formStatus.textContent = 'Mensagem enviada com sucesso!';
+    form.reset();
+  }, 1500);
+}
+
+
 function initDynamicText() {
+  const words = ['Web', 'Front-End', 'JavaScript'];
+  let wordIndex = 0;
+
   setInterval(() => {
     wordIndex = (wordIndex + 1) % words.length;
     dynamicText.textContent = words[wordIndex];
   }, 2000);
 }
 
-// ==============================
-// Imagens de Projeto
-// ==============================
+
 function initProjectImages() {
   const projectWrappers = document.querySelectorAll('.project__wrapper');
 
@@ -58,145 +53,100 @@ function initProjectImages() {
   });
 }
 
-// ==============================
-// Animação Geral (Desktop e Mobile)
-// ==============================
+
 function initProjectAnimation(container, wrapper, id, state) {
-  // Para celular não existe mouseenter, vamos usar toque (touchstart)
-  
-  // Detecta se é touch device
   const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
   if (isTouchDevice) {
-    // Ativa animação no toque
-    wrapper.addEventListener('click', () => {
-      if (state.typed || state.typing) return;
-
-      clearTimeout(state.resetTimeout);
-
-      const text = state.description.getAttribute('data-text');
-      state.description.textContent = '';
-      let index = 0;
-      state.typing = true;
-
-      state.typeInterval = setInterval(() => {
-        if (index < text.length) {
-          state.description.textContent += text.charAt(index);
-          index++;
-        } else {
-          clearInterval(state.typeInterval);
-          state.typed = true;
-          state.typing = false;
-
-          state.stackImages.forEach((img, i) => {
-            setTimeout(() => {
-              img.style.opacity = '1';
-              img.style.transform = 'rotateY(0deg)';
-
-              if (i === state.stackImages.length - 1) {
-                setTimeout(() => {
-                  state.buttons.forEach((btn, j) => {
-                    setTimeout(() => {
-                      btn.style.opacity = '1';
-                      btn.style.transform = 'translateY(0)';
-                    }, j * 150);
-                  });
-                }, 300);
-              }
-            }, i * 150);
-          });
-        }
-      }, 20);
-    });
-
-    // Para resetar a animação, toque fora do container
-    document.addEventListener('click', (e) => {
-      if (!container.contains(e.target)) {
-        clearInterval(state.typeInterval);
-        state.description.textContent = '';
-        state.typed = false;
-        state.typing = false;
-
-        state.stackImages.forEach(img => {
-          img.style.opacity = '0';
-          img.style.transform = 'rotateY(90deg)';
-        });
-
-        state.buttons.forEach(btn => {
-          btn.style.opacity = '0';
-          btn.style.transform = 'translateY(20px)';
-        });
-      }
-    });
-
+    wrapper.addEventListener('click', () => handleTouchAnimation(state));
+    document.addEventListener('click', (e) => handleOutsideClick(e, container, state));
   } else {
-    // Desktop: mantém hover normal
-    wrapper.addEventListener('mouseenter', () => {
-      if (state.typed || state.typing) return;
-
-      clearTimeout(state.resetTimeout);
-
-      const text = state.description.getAttribute('data-text');
-      state.description.textContent = '';
-      let index = 0;
-      state.typing = true;
-
-      state.typeInterval = setInterval(() => {
-        if (index < text.length) {
-          state.description.textContent += text.charAt(index);
-          index++;
-        } else {
-          clearInterval(state.typeInterval);
-          state.typed = true;
-          state.typing = false;
-
-          state.stackImages.forEach((img, i) => {
-            setTimeout(() => {
-              img.style.opacity = '1';
-              img.style.transform = 'rotateY(0deg)';
-
-              if (i === state.stackImages.length - 1) {
-                setTimeout(() => {
-                  state.buttons.forEach((btn, j) => {
-                    setTimeout(() => {
-                      btn.style.opacity = '1';
-                      btn.style.transform = 'translateY(0)';
-                    }, j * 150);
-                  });
-                }, 300);
-              }
-            }, i * 150);
-          });
-        }
-      }, 20);
-    });
-
-    container.addEventListener('mouseleave', (e) => {
-      if (container.contains(e.relatedTarget)) return;
-
-      state.resetTimeout = setTimeout(() => {
-        clearInterval(state.typeInterval);
-        state.description.textContent = '';
-        state.typed = false;
-        state.typing = false;
-
-        state.stackImages.forEach(img => {
-          img.style.opacity = '0';
-          img.style.transform = 'rotateY(90deg)';
-        });
-
-        state.buttons.forEach(btn => {
-          btn.style.opacity = '0';
-          btn.style.transform = 'translateY(20px)';
-        });
-      }, 1000);
-    });
+    wrapper.addEventListener('mouseenter', () => handleHoverAnimation(state));
+    container.addEventListener('mouseleave', () => handleMouseLeaveAnimation(container, state));
   }
 }
 
-// ==============================
-// Inicialização dos Projetos
-// ==============================
+function handleTouchAnimation(state) {
+  if (state.typed || state.typing) return;
+  clearTimeout(state.resetTimeout);
+  typeText(state);
+}
+
+function handleHoverAnimation(state) {
+  if (state.typed || state.typing) return;
+  clearTimeout(state.resetTimeout);
+  typeText(state);
+}
+
+function handleOutsideClick(e, container, state) {
+  if (!container.contains(e.target)) {
+    resetAnimation(state);
+  }
+}
+
+function handleMouseLeaveAnimation(container, state) {
+  if (container.contains(event.relatedTarget)) return;
+  state.resetTimeout = setTimeout(() => resetAnimation(state), 1000);
+}
+
+function typeText(state) {
+  const text = state.description.getAttribute('data-text');
+  state.description.textContent = '';
+  let index = 0;
+  state.typing = true;
+
+  state.typeInterval = setInterval(() => {
+    if (index < text.length) {
+      state.description.textContent += text.charAt(index);
+      index++;
+    } else {
+      clearInterval(state.typeInterval);
+      state.typed = true;
+      state.typing = false;
+      revealImagesAndButtons(state);
+    }
+  }, 20);
+}
+
+function resetAnimation(state) {
+  clearInterval(state.typeInterval);
+  state.description.textContent = '';
+  state.typed = false;
+  state.typing = false;
+
+  state.stackImages.forEach(img => {
+    img.style.opacity = '0';
+    img.style.transform = 'rotateY(90deg)';
+  });
+
+  state.buttons.forEach(btn => {
+    btn.style.opacity = '0';
+    btn.style.transform = 'translateY(20px)';
+  });
+}
+
+function revealImagesAndButtons(state) {
+  state.stackImages.forEach((img, i) => {
+    setTimeout(() => {
+      img.style.opacity = '1';
+      img.style.transform = 'rotateY(0deg)';
+      if (i === state.stackImages.length - 1) {
+        setTimeout(() => revealButtons(state), 300);
+      }
+    }, i * 150);
+  });
+}
+
+function revealButtons(state) {
+  state.buttons.forEach((btn, j) => {
+    setTimeout(() => {
+      btn.style.opacity = '1';
+      btn.style.transform = 'translateY(0)';
+    }, j * 150);
+  });
+}
+
+
 function initProjects() {
   projectContainers.forEach(container => {
     const wrapper = container.querySelector('.project__wrapper');
@@ -220,17 +170,52 @@ function initProjects() {
   });
 }
 
-// ==============================
-// Inicialização Geral
-// ==============================
+
 function init() {
   initForm();
   initDynamicText();
   initProjectImages();
-  initProjects(); // Remove a condição, executa em todas as telas
+  initProjects();
+  initScrollHeader();
+  initMenuToggle();
+  initDownload();
+}
+
+function initScrollHeader() {
+  document.addEventListener('scroll', () => {
+    const header = document.querySelector('.mobile__header');
+    header.style.background = window.scrollY > 50 ? 'linear-gradient(to right, #000000, #1a1a1a)' : 'transparent';
+  });
+}
+
+function initMenuToggle() {
+  const menuIcon = document.querySelector('.menu-icon');
+  const nav = document.querySelector('.mobile__header nav');
+  menuIcon.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    menuIcon.classList.toggle('hidden');
+  });
+
+  const closeIcon = document.querySelector('.close__menu');
+  closeIcon.addEventListener('click', () => {
+    nav.classList.remove('active');
+    menuIcon.classList.remove('hidden');
+  });
+}
+
+function initDownload() {
+  document.getElementById("download").addEventListener("click", function (e) {
+    e.preventDefault();
+    const link = document.createElement("a");
+    link.href = "/assets/downloads/curriculo-Vinicius_Pereira.pdf";
+    link.download = "curriculo-Vinicius_Pereira.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
 }
 
 window.addEventListener('load', init);
 window.addEventListener('resize', () => {
-  // Pode ajustar se precisar ao redimensionar
+  
 });

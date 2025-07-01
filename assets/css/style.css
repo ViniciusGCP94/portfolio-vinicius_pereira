@@ -25,7 +25,7 @@ body {
   scroll-behavior: smooth;
 }
 
-header {
+.desktop__header {
   position: fixed;
   top: 0;
   left: 0;
@@ -40,7 +40,7 @@ header {
   z-index: 5;
 }
 
-nav {
+.desktop__header nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,19 +50,19 @@ nav {
   gap: 20px;
 }
 
-nav .logo{
+.desktop__header nav .logo{
   width: 70px;   
   transition: color 0.3s ease;
 }
 
-nav .logo img {
+.desktop__header nav .logo img {
   width: 100%;
   height: 70px;
   border: 2px solid var(--accent);  
   border-radius: 50%;  
 }
 
-nav .nav-links {
+.desktop__header nav .nav-links {
   display: flex;
   width: 100%;
   max-width: 450px;
@@ -71,20 +71,20 @@ nav .nav-links {
   gap: 20px;
 }
 
-.nav-links li {
+.desktop__header .nav-links li {
   list-style: none;
 }
 
-.nav-links li:hover {
+.desktop__header .nav-links li:hover {
   transform: scale(1.25);
   transition: transform 0.3s ease;
 }
 
-.nav-links li:hover a {
+.desktop__header .nav-links li:hover a {
   color: var(--accent);
 }
 
-nav .download__curriculum{
+.desktop__header nav .download__curriculum{
   color: var(--accent);
   text-decoration: none;
   text-align: center;
@@ -93,7 +93,7 @@ nav .download__curriculum{
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-nav .download__curriculum a {
+.desktop__header nav .download__curriculum a {
   font-size: 1rem;
   font-weight: 700;
   color: var(--accent);
@@ -104,23 +104,194 @@ nav .download__curriculum a {
   border-radius: 5px;
 }
 
-nav .download__curriculum a:hover {
+.desktop__header nav .download__curriculum a:hover {
   background: var(--accent);
   color: var(--bg);
   box-shadow: 5px 5px 10px rgba(4, 255, 140, 0.5);
   border: 2px solid var(--bg);
 }
 
-nav .menu-icon {
+.desktop__header nav .menu-icon {
   display: none;
   cursor: pointer;
 }
 
-.nav-links a {
+.desktop__header .nav-links a {
   color: var(--text);
   text-decoration: none;
   font-size: 1.2rem;
   transition: color 0.3s ease;
+}
+
+.mobile__header{
+  display: none;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: auto;
+  background: linear-gradient(to right, #000000, #1a1a1a);
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 5;
+}
+
+.mobile__header .logo {
+  width: 70px;
+  transition: color 0.3s ease;
+}
+
+.mobile__header .logo img {
+  width: 100%;
+  height: 70px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+}
+
+.mobile__header .menu-icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+.mobile__header .menu-icon img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.mobile__header nav {
+  position: fixed; /* importante! */
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  display: none; /* esconde inicialmente */
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 40px;
+  background: linear-gradient(to right, #000000, #1a1a1a);
+  z-index: 1000;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobile__header nav.active {
+  display: flex;
+}
+
+.mobile__header nav .top__menu__nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile__header nav .top__menu__nav .close__menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  transition: color 0.3s ease;
+}
+
+.mobile__header nav .top__menu__nav .close__menu img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.mobile__header nav .download__curriculum {
+  color: var(--accent);
+  text-decoration: none;
+  line-height: 50px;
+  font-weight: var(--font-weight-medium);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mobile__header nav .download__curriculum a {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid var(--accent);
+  border-radius: 5px;
+}
+
+.mobile__header nav .nav-links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.mobile__header nav .nav-links li {
+  list-style: none;
+  width: 100%;
+  padding: 10px 0;
+  border-bottom:2px solid var(--accent) ;
+}
+
+.mobile__header nav .nav-links li:hover a {
+  color: var(--accent);
+}
+
+.mobile__header nav .nav-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.mobile__header nav .nav-links a:hover {
+  color: var(--accent);
+}
+
+.mobile__header nav .socials {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 0;
+}
+
+.mobile__header nav .socials li,
+.social__links li {
+  list-style: none;
+}
+
+.mobile__header nav .socials .social__links,
+.social__links{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.mobile__header nav .socials .social__links__button,
+.social__links__button {
+  display: block;
+  width: 40px;
+  height: 40px;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+} 
+
+.mobile__header nav .socials a img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
 }
 
 #home {
@@ -482,6 +653,15 @@ footer {
 }
 
 @media (max-width: 890px) {
+  .desktop__header {
+    display: none;
+  }
+
+  .mobile__header {
+    display: flex;
+    background: transparent;
+  }
+
   #home {
     height: 100vh;
     flex-direction: column-reverse;
@@ -534,7 +714,6 @@ footer {
   #about {
     height: 70vh;
     padding: 50px 20px;
-    border: 1px solid red;
   }
 
   .about__content{
@@ -641,7 +820,8 @@ footer {
 
 @media (max-width: 600px) {
   #home {
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
     flex-direction: column-reverse;
     justify-content: space-evenly;
     text-align: center;
@@ -650,7 +830,7 @@ footer {
   }
 
   #home h1 {
-    font-size: 1.8rem;
+    font-size: 1.75rem;
   }
 
   #home a {
@@ -671,12 +851,17 @@ footer {
     width: 100%;
     font-size: 1.8rem;
     text-align: left;
-    margin: 10px 0 10px 30px;
+    margin: 10px;
+  }
+
+  .img-container{
+    width: 250px;
+    height: 250px;
   }
 
   #about{
     height: auto;
-    padding: 20px;
+    padding: 50px 20px;
   }
 
   #about .about__content {
@@ -749,6 +934,17 @@ footer {
 }
 
 @media (max-width: 375px) {
+
+  .mobile__header nav {
+    gap: 20px;
+  }
+
+  .mobile__header nav .download__curriculum {
+    position: absolute;
+    bottom: 70px;
+  }
+
+
   #home h1 {
     font-size: 1.5rem;
   }
