@@ -166,12 +166,12 @@ body {
 }
 
 .mobile__header nav {
-  position: fixed; /* importante! */
+  position: fixed; 
   top: 0;
   left: 0;
   height: 100vh;
   width: 100%;
-  display: none; /* esconde inicialmente */
+  display: none; 
   flex-direction: column;
   justify-content: flex-start;
   gap: 40px;
@@ -375,8 +375,8 @@ body {
   text-decoration: none;
   border: 2px solid var(--accent);
   border-radius: 5px;
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .hero .button__hero:hover {
@@ -844,6 +844,7 @@ footer {
 
   #home .text__2 {
     font-size: 1.25rem;
+    margin-top: 0;
   }
 
   .hero {
@@ -863,9 +864,14 @@ footer {
     width: 250px;
     height: 250px;
   }
+  
+  .hero .social__links {
+      margin-top: 20px ;
+  }
 
   .hero .button__hero{
     margin-left: 0;
+    margin-top: 30px;
   }
 
 
@@ -910,7 +916,8 @@ footer {
   .project__wrapper {
     width: 90%;
     height: 30vh;
-    margin-bottom: 20px;        
+    margin-bottom: 20px;
+    padding: 10px;
   }
 
   .project__content {
@@ -943,6 +950,12 @@ footer {
   }
 }
 
+@media (max-width: 450px){
+    #home .text__profission {
+        margin: 10px 10px 10px 50px;
+    }
+}
+
 @media (max-width: 375px) {
 
   .mobile__header nav {
@@ -961,7 +974,6 @@ footer {
 
   #home .text__profission {
     font-size: 1.5rem;
-    margin-left: 50px;
   }
 
   .hero {
