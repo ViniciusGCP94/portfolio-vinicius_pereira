@@ -14,40 +14,24 @@ const projectImages = {
 const projectStates = {};
 
 function initForm() {
-  form.addEventListener('submit', handleSubmit);
-}
-
-function handleSubmit(e) {
-  formStatus.textContent = 'Enviando...';
-
-  formStatus.textContent = '📤 Enviando mensagem...';
-  formStatus.style.color = '#ffeb3b';
-  formStatus.style.display = 'block';
+  form.addEventListener('submit', function(e) {
+  e.preventDefault();
   
-  // Desabilita botão
-  const button = form.querySelector('button[type="submit"]');
-  button.disabled = true;
-  button.textContent = 'Enviando...';
-
-  setTimeout(() => {
-    if (formStatus) {
-      formStatus.innerHTML = '✅ <strong>Mensagem Enviada!</strong>';
-
-      formStatus.style.transform = 'scale(1.05)';
-      setTimeout(() => {
-        formStatus.style.transform = 'scale(1)';
-      }, 300);
-    }
-  })
+  const buttonSubmit = e.target.querySelector('button[type="submit"]');
+  
+  // Desabilita temporariamente
+  buttonSubmit.disabled = true;
+  buttonSubmit.textContent = 'Enviando...';
+  
+    setTimeout(() => {
+      alert('Mensagem enviada!'); // Ou qualquer feedback
+      form.reset();
+      buttonSubmit.disabled = false;
+      buttonSubmit.textContent = 'Enviar';
+    }, 1000);
+  
+  });
 }
-form.reset();
-    
-    // Reabilita o botão
-    button.disabled = false;
-    button.textContent = 'Enviar';
-    button.style.opacity = '1'
-form.addEventListener('submit', handleSubmit);
-
 
 function initDynamicText() {
   const words = ['Web', 'Front-End', 'JavaScript'];
@@ -105,7 +89,7 @@ function handleOutsideClick(e, container, state) {
   }
 }
 
-function handleMouseLeaveAnimation(container, state) {
+function handleMouseLeaveAnimation(container, state, event) {
   if (container.contains(event.relatedTarget)) return;
   state.resetTimeout = setTimeout(() => resetAnimation(state), 1000);
 }
@@ -237,6 +221,3 @@ function initDownload() {
 }
 
 window.addEventListener('load', init);
-window.addEventListener('resize', () => {
-  
-});
