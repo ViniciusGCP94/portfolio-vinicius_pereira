@@ -18,14 +18,35 @@ function initForm() {
 }
 
 function handleSubmit(e) {
-  e.preventDefault();
   formStatus.textContent = 'Enviando...';
 
+  formStatus.textContent = '📤 Enviando mensagem...';
+  formStatus.style.color = '#ffeb3b';
+  formStatus.style.display = 'block';
+  
+  // Desabilita botão
+  const button = form.querySelector('button[type="submit"]');
+  button.disabled = true;
+  button.textContent = 'Enviando...';
+
   setTimeout(() => {
-    formStatus.textContent = 'Mensagem enviada com sucesso!';
-    form.reset();
-  }, 1500);
+    if (formStatus) {
+      formStatus.innerHTML = '✅ <strong>Mensagem Enviada!</strong>';
+
+      formStatus.style.transform = 'scale(1.05)';
+      setTimeout(() => {
+        formStatus.style.transform = 'scale(1)';
+      }, 300);
+    }
+  })
 }
+form.reset();
+    
+    // Reabilita o botão
+    button.disabled = false;
+    button.textContent = 'Enviar';
+    button.style.opacity = '1'
+form.addEventListener('submit', handleSubmit);
 
 
 function initDynamicText() {
