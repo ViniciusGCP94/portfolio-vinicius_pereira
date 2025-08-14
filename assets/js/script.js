@@ -15,7 +15,6 @@ const projectStates = {};
 
 function initForm() {
   form.addEventListener('submit', function(e) {
-  e.preventDefault();
   
   const buttonSubmit = e.target.querySelector('button[type="submit"]');
   
@@ -24,7 +23,7 @@ function initForm() {
   buttonSubmit.textContent = 'Enviando...';
   
     setTimeout(() => {
-      alert('Mensagem enviada!'); // Ou qualquer feedback
+      formStatus.innerHTML = '✅ <strong>Mensagem Enviada!</strong>';
       form.reset();
       buttonSubmit.disabled = false;
       buttonSubmit.textContent = 'Enviar';
