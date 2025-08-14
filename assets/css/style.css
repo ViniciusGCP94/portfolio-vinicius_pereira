@@ -44,7 +44,7 @@ body {
 
 .desktop__header {
   display: flex;
-  height: 120px;
+  height: 100px;
 }
 
 .desktop__header nav {
@@ -138,8 +138,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: clamp(40px, 8vw, 60px);
-  height: clamp(40px, 8vw, 60px);
+  width: clamp(15vw, 8vw, 60px);
+  height: clamp(15vw, 8vw, 60px);
   cursor: pointer;
 }
 
@@ -233,26 +233,23 @@ body {
   height: 100%;
 }
 
-/* Home Section */
 #home {
   display: flex;
   min-height: 100dvh;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to right, #000000, #1a1a1a);
-  padding: 100px min(20px, 5%);
-  text-align: center;
+  padding: 50px min(20px, 5%);
   flex-wrap: wrap;
 }
 
 #home h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.7rem, 5vw, 2.2rem);
   color: var(--accent);
   width: 100%;
 }
 
 #home .text__profission {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.7rem, 5vw, 2.2rem);
   width: 100%;
 }
 
@@ -264,16 +261,16 @@ body {
 }
 
 .hero {
-  width: clamp(100%, 50vw, 50%);
+  width: clamp(600px, 45vw, 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: min(20px, 5%);
+  margin-top: 8%;
 }
 
 .hero .text__2 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.2rem, 2.2vw, 2rem);
   text-align: left;
   width: 100%;
 }
@@ -284,6 +281,7 @@ body {
   align-items: center;
   width: clamp(250px, 40vw, 300px);
   margin-bottom: min(60px, 5%);
+  margin-top: 8%;
 }
 
 .img-container {
@@ -321,6 +319,7 @@ body {
 
 .hero .social__links {
   margin-top: 40px;
+  list-style: none;
 }
 
 h2 {
@@ -329,6 +328,7 @@ h2 {
   border-left: 5px solid var(--accent);
   padding-left: 10px;
 }
+
 
 #about,
 #portfolio,
@@ -340,7 +340,7 @@ h2 {
 
 #about {
   display: flex;
-  min-height: 100dvh;
+  min-height: 80dvh;
   align-items: center;
 }
 
@@ -356,7 +356,6 @@ h2 {
   display: flex;
   justify-content: space-between;
   gap: min(20px, 5%);
-  flex-wrap: wrap;
 }
 
 .about__content__text__image p {
@@ -384,7 +383,7 @@ h2 {
 }
 
 .about__content__skills__container {
-  width: clamp(100%, 50vw, 50%);
+  width: clamp(50%, 30vw, 100%);
   display: flex;
   justify-content: space-between;
   padding: min(20px, 5%);
@@ -418,7 +417,7 @@ h2 {
   justify-content: space-between;
   position: relative;
   border-radius: 20px;
-  flex-wrap: wrap;
+  gap: min(40px, 5%);
 }
 
 .project__wrapper {
@@ -426,7 +425,7 @@ h2 {
   align-items: center;
   justify-content: center;
   position: relative;
-  width: clamp(80%, 45vw, 45%);
+  width: clamp(50%, 100vw, 320px);
   height: clamp(250px, 35vh, 250px);
   border: 2px solid var(--accent);
   border-radius: 20px;
@@ -461,19 +460,20 @@ h2 {
 }
 
 .project__content {
-  width: clamp(100%, 50vw, 50%);
+  width: clamp( 50%, 500px,100vw);
   height: 100%;
-  gap: min(20px, 5%);
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .project__content .list__image__stack {
-  width: clamp(100%, 30vw, 30%);
+  width: clamp(50%, 30vw, 30%);
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
+  padding: min(12px, 5%) 0;
+  gap: min(10px, 5%);
 }
 
 .list__image__stack li {
@@ -483,8 +483,8 @@ h2 {
 }
 
 .list__image__stack img {
-  width: clamp(30px, 6vw, 50px);
-  height: clamp(30px, 6vw, 50px);
+  width: clamp(40px, 6vw, 30%);
+  height: clamp(40px, 6vw, 30%);
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   opacity: 0;
@@ -628,6 +628,15 @@ footer {
 
   .about__content__skills__container {
     width: 100%;
-    justify-content: space-around;
+    margin-top: 10px;
+  }
+
+  .project__container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project__content {
+    padding: max(20px, 5%);
   }
 }
