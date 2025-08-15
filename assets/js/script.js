@@ -18,7 +18,6 @@ function initForm() {
   
   const buttonSubmit = e.target.querySelector('button[type="submit"]');
   
-  // Desabilita temporariamente
   buttonSubmit.disabled = true;
   buttonSubmit.textContent = 'Enviando...';
   
@@ -123,6 +122,11 @@ function resetAnimation(state) {
     img.style.transform = 'rotateY(90deg)';
   });
 
+  state.figcaptions.forEach(caption => {
+    caption.style.opacity = '0';
+    caption.style.transform = 'translateY(20px)';
+  });
+
   state.buttons.forEach(btn => {
     btn.style.opacity = '0';
     btn.style.transform = 'translateY(20px)';
@@ -135,6 +139,20 @@ function revealImagesAndButtons(state) {
       img.style.opacity = '1';
       img.style.transform = 'rotateY(0deg)';
       if (i === state.stackImages.length - 1) {
+        setTimeout(() => {
+          revealCaptions(state); // Chama a função para as legendas
+        }, 300);
+      }
+    }, i * 150);
+  });
+}
+
+function revealCaptions(state) {
+  state.figcaptions.forEach((caption, i) => {
+    setTimeout(() => {
+      caption.style.opacity = '1';
+      caption.style.transform = 'translateY(0)';
+      if (i === state.figcaptions.length - 1) {
         setTimeout(() => revealButtons(state), 300);
       }
     }, i * 150);
@@ -158,12 +176,14 @@ function initProjects() {
     const stackImages = container.querySelectorAll('.list__image__stack img');
     const buttons = container.querySelectorAll('.access__button');
     const id = wrapper.getAttribute('data-id');
+    const figcaptions = container.querySelectorAll('.list__image__stack figcaption');
 
     projectStates[id] = {
       typed: false,
       typing: false,
       description,
       stackImages,
+      figcaptions,
       buttons,
       wrapper,
       typeInterval: null,
