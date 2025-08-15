@@ -8,7 +8,8 @@ const projectContainers = document.querySelectorAll('.project__container');
 const projectImages = {
   1: 'https://raw.githubusercontent.com/ViniciusGCP94/validador_De_Cartao_de_Credito/main/assets/images/Valida%C3%A7%C3%A3o-de-Cart%C3%A3o-CAPA.png',
   2: 'https://raw.githubusercontent.com/ViniciusGCP94/piano-simulator/d379b70e323a8f18ca241f0dd1d48f3e0eb6374b/assets/image/Piano-Simulator-Capa-readme.png',
-  3: 'https://raw.githubusercontent.com/ViniciusGCP94/jogo-da-memoria/main/assets/images/Jogo-da-Mem%C3%B3ria_finish.png'
+  3: 'https://raw.githubusercontent.com/ViniciusGCP94/jogo-da-memoria/main/assets/images/Jogo-da-Mem%C3%B3ria_finish.png',
+  4:'https://raw.githubusercontent.com/ViniciusGCP94/img_description/main/src/assets/images/image-description.png'
 };
 
 const projectStates = {};
