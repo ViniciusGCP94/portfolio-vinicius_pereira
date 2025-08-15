@@ -233,8 +233,8 @@ function initDownload() {
   document.getElementById("download").addEventListener("click", function (e) {
     e.preventDefault();
     const link = document.createElement("a");
-    link.href = "/assets/downloads/curriculo-Vinicius_Pereira.pdf";
-    link.download = "curriculo-Vinicius_Pereira.pdf";
+    link.href = "/assets/downloads/curriculo-Vinicius_Pereira_Front-End_dev.pdf";
+    link.download = "curriculo-Vinicius_Pereira_Front-End_dev.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
