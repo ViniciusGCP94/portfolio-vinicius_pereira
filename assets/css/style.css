@@ -434,6 +434,12 @@ h2 {
   background-position: center;
   background-repeat: no-repeat;
   margin-bottom: min(20px, 5%);
+  background-color: #ffffff;
+}
+
+.project_wrapper_img-description{
+  background-size:contain !important;
+  background-color: #ffffff !important;
 }
 
 .project__wrapper::after {

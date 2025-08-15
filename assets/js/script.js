@@ -66,7 +66,7 @@ function initProjectAnimation(container, wrapper, id, state) {
     document.addEventListener('click', (e) => handleOutsideClick(e, container, state));
   } else {
     wrapper.addEventListener('mouseenter', () => handleHoverAnimation(state));
-    container.addEventListener('mouseleave', () => handleMouseLeaveAnimation(container, state));
+    container.addEventListener('mouseleave', (e) => handleMouseLeaveAnimation(container, state));
   }
 }
 
@@ -90,6 +90,7 @@ function handleOutsideClick(e, container, state) {
 
 function handleMouseLeaveAnimation(container, state, event) {
   if (container.contains(event.relatedTarget)) return;
+  if (!event || !event.relatedTarget || container.contains(event.relatedTarget)) return;
   state.resetTimeout = setTimeout(() => resetAnimation(state), 1000);
 }
 
