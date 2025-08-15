@@ -30,8 +30,6 @@ Demonstração do Portfólio
 - HTML5
 - CSS3 (incluindo Flexbox e Grid)
 - JavaScript (ES6+)
-- [Inclua frameworks ou bibliotecas adicionais, caso utilizados]
-- [Exemplo: React, Bootstrap, etc.]
 
 ## 🚀 Como Usar / Instalação
 
