@@ -25,7 +25,6 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Base styles for header and nav */
 .desktop__header,
 .mobile__header {
   position: fixed;
@@ -115,7 +114,6 @@ body {
   border: 2px solid var(--bg);
 }
 
-/* Mobile Header */
 .mobile__header {
   display: none;
   justify-content: space-between;
@@ -598,7 +596,6 @@ footer {
   font-size: clamp(0.8rem, 1.5vw, 0.9rem);
 }
 
-/* Media Queries simplified */
 @media (max-width: 890px) {
   .desktop__header {
     display: none;
