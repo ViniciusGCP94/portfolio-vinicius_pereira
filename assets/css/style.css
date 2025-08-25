@@ -288,7 +288,6 @@ body {
   aspect-ratio: 1;
   clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
   background: #0f172a;
-  border: 5px solid #38f8d7;
   padding: 10px;
   box-shadow: 0 0 30px rgba(56, 248, 215, 0.4);
 }
@@ -300,6 +299,19 @@ body {
   clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
   border-radius: 8px;
 }
+
+img-container::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(135deg, #38f8d7, #22d3ee);
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  z-index: -1;
+}
+
 
 .hero .button__hero {
   width: clamp(150px, 20vw, 200px);
