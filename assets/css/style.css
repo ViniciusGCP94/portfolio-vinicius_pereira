@@ -210,6 +210,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: clamp(20px, 5vw, 40px);
+  list-style: none;
 }
 
 .social__links .social__links__button,
