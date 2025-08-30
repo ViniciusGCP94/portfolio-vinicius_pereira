@@ -66,7 +66,7 @@ function initProjectAnimation(container, wrapper, id, state) {
     document.addEventListener('click', (e) => handleOutsideClick(e, container, state));
   } else {
     wrapper.addEventListener('mouseenter', () => handleHoverAnimation(state));
-    container.addEventListener('mouseleave', (e) => handleMouseLeaveAnimation(container, state));
+    container.addEventListener('mouseleave', (e) => handleMouseLeaveAnimation(container, state, e));
   }
 }
 
