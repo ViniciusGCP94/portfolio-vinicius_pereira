@@ -282,22 +282,26 @@ body {
   margin-top: 8%;
 }
 
-.avatar__container {
+.avatar__wrapper{
+  clip-path: url(#avatar-clip);
   position: relative;
-  width: 100%;
+  width: 100%; 
   aspect-ratio: 1;
-  clip-path: polygon(50% 0%, 93% 25%, 93% 73%, 50% 97%, 7% 73%, 7% 25%);
-  background: #38f8d7;
+}
+
+.avatar__container {
+  width: 100%;
+  height: 100%;
   padding: 10px;
-  box-shadow: 0 0 30px rgba(56, 248, 215, 0.4);
+  box-shadow: none;
+  background: #04ff8c;
 }
 
 .avatar__container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
-  border-radius: 8px;
+  clip-path: url(#avatar-clip);
 }
 
 img-container::before {
