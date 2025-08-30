@@ -114,7 +114,6 @@ body {
   border: 2px solid var(--bg);
 }
 
-/* Mobile Header */
 .mobile__header {
   display: none;
   justify-content: space-between;
@@ -300,6 +299,19 @@ body {
   clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
   border-radius: 8px;
 }
+
+img-container::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(135deg, #38f8d7, #22d3ee);
+  clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+  z-index: -1;
+}
+
 
 .hero .button__hero {
   width: clamp(150px, 20vw, 200px);
